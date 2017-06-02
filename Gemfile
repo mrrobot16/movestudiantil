@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~>4.2'
-ruby '2.3.0'
+ruby '2.4.0'
 
 # Libraries
 ####################
@@ -10,9 +10,8 @@ ruby '2.3.0'
 # gem 'recurrence'
 gem 'devise' # User Authentication
 gem 'thin' # Use Thin as Server
-
+gem 'pg' # Postgresql DB
 group :development, :test do
-  gem 'sqlite3' # SQLite3 DB
   gem 'rspec-rails' # Test Helper
   gem 'capybara' # Feature Testing
   gem 'factory_girl_rails' #
@@ -35,7 +34,6 @@ end
 
 group :production do
   gem 'puma'
-  gem 'pg' # Postgresql DB
   gem 'rails_12factor' # Heroku asset handler
 end
 
