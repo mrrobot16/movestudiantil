@@ -40,7 +40,7 @@
       i.glyphicon.glyphicon-map-marker
     .icon-content
       .form-group
-        = text_field_tag :event_location, @location, class:'form-control', placeholder: 'Add Location', tabindex: autoTabIndex, name:''
+        = text_field_tag :event_location, @location, class:'form-control', placeholder: 'PUNTO DE ENCUENTRO', tabindex: autoTabIndex, name:''
         = f.fields_for @location do |lf|
           = lf.hidden_field :name
           = lf.hidden_field :unit
@@ -69,15 +69,15 @@
       i.glyphicon.glyphicon-info-sign
     .icon-content
       .form-group
-        = f.text_area :description, class:'form-control', placeholder:'A description of the event', rows: 5, tabindex: autoTabIndex
+        = f.text_area :description, class:'form-control', placeholder:'PUNTO DE ENCUENTRO', rows: 5, tabindex: autoTabIndex
   .icon-group
     .icon
     .icon-content
       /- if request.path.include? 'edit'
       - if current_page?(controller: :events, action: 'edit', id: (params[:id] || ''))
         .btn-group-Cortadito
-          = f.submit 'Save', class:'btn btn-left-Cortadito btn-success'
-          = link_to @event, class: 'btn btn-right-Cortadito btn-danger', name: 'delete',data: {:confirm => 'Are you sure?'}, method: :delete do
+          = f.submit 'EMPEZAR', class:'btn btn-left-Cortadito btn-success'
+          = link_to @event, class: 'btn btn-right-Cortadito btn-danger', name: 'delete',data: {:confirm => 'QUE TANTO QUIREN SACAR A MADURO?'}, method: :delete do
             .glyphicon.glyphicon-trash
       - else
-        = f.submit 'Save', class: 'btn btn-block btn-success'
+        = f.submit 'INICIA_SU_SALIDA', class: 'btn btn-block btn-success'

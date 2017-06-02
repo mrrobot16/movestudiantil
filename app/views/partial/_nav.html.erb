@@ -8,7 +8,6 @@
         <span class="icon-bar"></span>
         <% if (request['controller']== 'events' && (request['action']=='index')) %>
           <% if request['action'] %>
-            <%= link_to 'Cortadito Alpha', root_path, class:"navbar-brand" %>
             <% elsif request['action'] == 'edit' %>
               <%= link_to :back, class:'navbar-brand' do %>
                 <span class="glyphicon glyphicon-menu-left">| Back</span>
@@ -20,6 +19,7 @@
           <% end %>
         <% end %>
       </button>
+      <%= link_to 'FUERAMADURO', root_path, class:"navbar-brand" %>
     </div>
 
     <div id="menu" class="collapse navbar-collapse">

@@ -2,20 +2,20 @@ html lang='en'
   head
     title
       - if content_for? :title
-        | Cortadito - #{yield :title}
+        | FUERAMADURO - #{yield :title}
       - else
-        | Cortadito
+        | FUERAMADURO
 
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    meta name="description" content="A simple app to keep track of South Florida Tech"
-    meta name="author" content="Chris Scott"
+    meta name="description" content="FUERA MADURO"
+    meta name="author" content="MOVIMIENTO ESTUDIANTIL"
 
     // Defaults
-    meta value="twitter:site" content="@CortaditioMiami"
+    meta value="twitter:site" content="@MOVIMIENTOESTUDIANTIL"
     meta name="twitter:card" content="summary"
-    meta property="og:site_name" content="Cortadito.Miami"
+    meta property="og:site_name" content="FUERAMADURO.COM"
 
     - if content_for? :event_meta_tags
       = yield :event_meta_tags
@@ -36,9 +36,8 @@ html lang='en'
           span aria-hidden="true"
             | &times;
         .message
-          | Welcome to Cortadito South Floridas Tech Board.
-          | We are currently in testing so please pardon the mess.
-          a href="https://github.com/CyberStrike/soflo" - Team Cortadito
+          | HASTA EL IMPERIO ROMANO CAYO
+          a href="/" - MOVIMIENTO ESTUDIANTIL
 
     .container
       - unless flash.empty?
@@ -50,9 +49,9 @@ html lang='en'
     .site-footer
       .text-center
         .octocat
-          a href="https://github.com/CyberStrike/soflo"
+          a href="/"
             img src="https://octodex.github.com/images/constructocat2.jpg" height="36px"
         p
-          strong &copy; #{DateTime.now.year} Cortadito Miami
+          strong &copy; #{DateTime.now.year} MOVIMIENTO ESTUDIANTIL
         p
-          Strong Built with ❤ by Syntax
+          UNIDOS SEREMOS GRANDE
