@@ -3,7 +3,20 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_date, only: [:index, :calendar]
   before_action :set_colors, only: [:index, :show]
-
+  @@monthToES = {
+    january:"enero",
+    febuary:"febrero",
+    march:"marzo",
+    april:"april",
+    may:"mayo",
+    june:"junio",
+    july:"julio",
+    august:"agosto",
+    september:"septiembre",
+    october:"octubre",
+    november:"noviembre",
+    december:"diciembre"
+  }
   def index
     # Lets just show the next 20 events and worry about proper navigation sorting another time.
     @events_by_week = Event.where('start > ?', @date).order(:start).limit(params[:limit]).group_by(&:start_date)
