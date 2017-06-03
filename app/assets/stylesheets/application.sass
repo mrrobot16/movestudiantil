@@ -1,5 +1,6 @@
 $not-quite-white: #f7f7f7
 $venezuela_blue: #001fff
+$venezuela_yellow: #ffff00
 $font-size-base: 16px
 
 @font-face
@@ -15,6 +16,7 @@ html
   body
     // background-color: $not-quite-white
     background-color: $venezuela_blue
+    color: $venezuela_yellow
 
 a
   .glyphicon.glyphicon-chevron-right
@@ -30,12 +32,15 @@ a
 .navbar-Cortadito
   @extend .navbar-default
   border: none
+  margin-bottom: 0px 
   .navbar-brand-Cortadito
     @extend .navbar-brand
     float: none
     line-height: inherit
     margin-left: 16px // Compensating for Nav Toggle
 
+div.message > span
+  color: $venezuela_yellow
 // For calendar
 td
   p
@@ -70,9 +75,18 @@ td
   padding-bottom: 40px
   font-size: 12px
   line-height: 1.5
-  color: #777
+  // color: #777
+  color: $venezuela_yellow
   border-top: 1px solid #eee
 
 .break-xs
   @media (max-width: $screen-xs-min)
     display: block
+.alert-warning
+  // background-color: #fcf8e3
+  background-color: #290202
+  border: none
+  color: $venezuela_blue
+.alert-warning
+  .message > a
+    color: $venezuela_blue !important

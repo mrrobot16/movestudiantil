@@ -25,10 +25,10 @@ class Event < ActiveRecord::Base
 
   validate  :start_time_not_in_past
 
-  validate  :finish_time_in_future
+  # validate  :finish_time_in_future
 
-  validates :finish,
-            presence: true
+  # validates :finish,
+  #           presence: true
 
   scope :this_week, -> { where(:start => Date.current.beginning_of_week..Date.current.end_of_week ) }
 

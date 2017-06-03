@@ -14,7 +14,7 @@
     .icon
     .icon-content
       .form-group
-        = f.text_field :title, class:'form-control', placeholder:'Event Title', tabindex: autoTabIndex
+        = f.text_field :title, class:'form-control', placeholder:'TITULO DE ENCUENTRO', tabindex: autoTabIndex
   // Date
   .icon-group
     .icon
@@ -30,9 +30,9 @@
     .icon-content
       .form-group
         = f.time_select :start, {ignore_date: true, ampm: true, minute_step: 30}, tabindex: autoTabIndex
-        | –
-        span.break-xs
-        = f.time_select :finish, {ignore_date: true, ampm: true, minute_step: 30}, tabindex: autoTabIndex
+      //  | –
+      //  span.break-xs
+      //  = f.time_select :finish, {ignore_date: true, ampm: true, minute_step: 30}, tabindex: autoTabIndex
 
   // Location
   .icon-group
@@ -57,19 +57,19 @@
     #location_map style="display: none"
 
   // Tickets
-  .icon-group
-    .icon
-      i.glyphicon.glyphicon-qrcode
-    .icon-content
-      .form-group
-        = f.text_field :ticketurl, class:'form-control', placeholder: 'Tickets Url', tabindex: autoTabIndex
+  // .icon-group
+  //  .icon
+  //    i.glyphicon.glyphicon-qrcode
+  //  .icon-content
+  //    .form-group
+  //      = f.text_field :ticketurl, class:'form-control', placeholder: 'Tickets Url', tabindex: autoTabIndex
   // Description
   .icon-group
     .icon
       i.glyphicon.glyphicon-info-sign
     .icon-content
       .form-group
-        = f.text_area :description, class:'form-control', placeholder:'PUNTO DE ENCUENTRO', rows: 5, tabindex: autoTabIndex
+        = f.text_area :description, class:'form-control', placeholder:'MISSION DEL ENCUENTRO', rows: 5, tabindex: autoTabIndex
   .icon-group
     .icon
     .icon-content
@@ -80,4 +80,4 @@
           = link_to @event, class: 'btn btn-right-Cortadito btn-danger', name: 'delete',data: {:confirm => 'QUE TANTO QUIREN SACAR A MADURO?'}, method: :delete do
             .glyphicon.glyphicon-trash
       - else
-        = f.submit 'INICIA_SU_SALIDA', class: 'btn btn-block btn-success'
+        = f.submit 'INICIA LA SALIDA', class: 'btn btn-block btn-success'

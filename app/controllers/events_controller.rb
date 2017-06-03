@@ -83,7 +83,7 @@ class EventsController < ApplicationController
     respond_to do |format|
 
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'ENCUENTRO INICIADO' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       else
         format.html { render action: 'new' }
@@ -104,7 +104,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.user == current_user && @event.update(event_params.except(:location))
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'ENCUENTRO EDITADO' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -116,7 +116,7 @@ class EventsController < ApplicationController
   def destroy
     respond_to do |format|
       if @event.user == current_user && @event.destroy
-        format.html { redirect_to events_url, notice: @event.title + ' was deleted.' }
+        format.html { redirect_to events_url, notice: @event.title + ' BORRADO' }
         format.json { head :no_content }
       else
         format.html { redirect_to events_url, notice: 'Invalid Permissions.' }
@@ -133,6 +133,8 @@ class EventsController < ApplicationController
 
     def set_date
       @date = params[:date] ? Date.parse(params[:date]) : Date.current
+      p @date
+      p @date.strftime("%B %Y")
     end
 
     def set_colors

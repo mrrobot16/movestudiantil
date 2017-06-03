@@ -24,7 +24,7 @@ html lang='en'
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places', 'data-turbolinks-track' => true
+  //  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places', 'data-turbolinks-track' => true
 
   body id=params[:controller] class=params[:action]
 
@@ -32,12 +32,9 @@ html lang='en'
 
     .text-center
       .alert.alert-warning
-        span.close data-dismiss="alert"
-          span aria-hidden="true"
-            | &times;
         .message
-          | HASTA EL IMPERIO ROMANO CAYO
-          a href="/" - MOVIMIENTO ESTUDIANTIL
+          span LA REBELION SE HIZO DERECHO
+          a href="/"  MOVIMIENTO ESTUDIANTIL
 
     .container
       - unless flash.empty?
@@ -48,10 +45,10 @@ html lang='en'
 
     .site-footer
       .text-center
-        .octocat
-          a href="/"
-            img src="https://octodex.github.com/images/constructocat2.jpg" height="36px"
+        // .octocat
+          // a href="/"
+            // img src="https://octodex.github.com/images/constructocat2.jpg" height="36px"
         p
-          strong &copy; #{DateTime.now.year} MOVIMIENTO ESTUDIANTIL
+          strong &copy; MOVIMIENTO ESTUDIANTIL
         p
-          UNIDOS SEREMOS GRANDE
+          strong UNIDOS PARA TRIUNFAR

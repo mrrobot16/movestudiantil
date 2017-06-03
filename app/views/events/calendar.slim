@@ -2,10 +2,10 @@
   .btn-group.pull-right
     = link_to root_path, class: 'btn btn-warning' do
       span.glyphicon.glyphicon-list
-      |  Weeks
+      |  SEMANAS
     = link_to calendar_path, class: 'btn btn-info' do
       span.glyphicon.glyphicon-calendar
-      |  Calendar
+      |  CALENDARIO
 .row
   .col-lg-8.col-lg-push-2
     h2.text-center#month
@@ -15,7 +15,7 @@
         li = link_to date: @date.prev_month do
           span.glyphicon.glyphicon-chevron-left
           = @date.prev_month.strftime('%B')
-        li = link_to 'Today', date: Date.current
+        li = link_to 'HOY', date: Date.current
         li = link_to date: @date.next_month do
           = @date.next_month.strftime('%B')
           span.glyphicon.glyphicon-chevron-right
@@ -30,29 +30,29 @@
 /table
 /  thead
 /    tr
-/      th Title
-/      th Start
-/      th finish
-/      th Location
-/      th Ticketurl
+/      th CAUSA
+/      th INICIO
+/     // th finish
+/      th UBICACION
+/      //th Ticketurl
 /      th Description
 /      th
-/      th
-/      th
+/      //th
+/     // th
 /
 /  tbody
 /    - @events.each do |event|
 /      tr
 /        td = event.title
 /        td = event.start
-/        td = event.finish
+/       // td = event.finish
 /        td = event.location
-/        td = event.ticketurl
+/      //  td = event.ticketurl
 /        td = event.description
-/        td = link_to 'Show', event
-/        td = link_to 'Edit', edit_event_path(event)
-/        td = link_to 'Destroy', event, data: {:confirm => 'Are you sure?'}, :method => :delete
+/        td = link_to 'MAS INFO', event
+/       // td = link_to 'Edit', edit_event_path(event)
+/        //td = link_to 'Destroy', event, data: {:confirm => 'Are you sure?'}, :method => :delete
 /
 /br
 
-= link_to 'New Event', new_event_path
+= link_to 'CREAR ENCUENTRO', new_event_path

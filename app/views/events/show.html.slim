@@ -18,11 +18,11 @@
     .icon-content
       - case @event.start.to_date
         - when Date.current
-          = "Today (#{@event.start.strftime('%a, %d')})"
+          = "HOY (#{@event.start.strftime('%a, %d')})"
         - when Date.current.tomorrow
-          = "Tomorrow (#{@event.start.strftime('%a, %d')})"
+          = "MAÑANA (#{@event.start.strftime('%a, %d')})"
         - when Date.current.yesterday
-          = "Yesterday (#{@event.start.strftime('%a, %d')})"
+          = "AYER (#{@event.start.strftime('%a, %d')})"
         - when (Date.current.year != @event.start.to_date.year)
           = @event.start.strftime('%a, %b %d, %Y')
         - else
@@ -33,11 +33,11 @@
         strong Finish:
         - case @event.finish.to_date
           - when Date.current
-            = "Today (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
+            = "HOY (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
           - when Date.current.tomorrow
-            = "Tomorrow (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
+            = "MAÑANA (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
           - when Date.current.yesterday
-            = "Yesterday (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
+            = "AYER (#{@event.finish.strftime('%a, %b %d, %Y, %I:%M %P')})"
           - else
             = @event.finish.strftime('%a, %b %d, %Y, %I:%M %P')
   // Time
@@ -79,4 +79,4 @@
     .icon-group
       .icon
       .icon-content
-        = link_to 'Edit', edit_event_path(@event), class:'btn btn-block btn-warning'
+        = link_to 'EDITAR ENCUENTRO', edit_event_path(@event), class:'btn btn-block btn-warning'

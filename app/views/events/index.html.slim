@@ -2,10 +2,10 @@
   .btn-group.pull-right
     = link_to root_path, class: 'btn btn-warning' do
       span.glyphicon.glyphicon-list
-      |  Weeks
+      |  SEMANAS
     = link_to calendar_path, class: 'btn btn-info' do
       span.glyphicon.glyphicon-calendar
-      |  Calendar
+      |  Calendario
 .row
   .event-card-container
     h2.text-center#month
@@ -15,7 +15,7 @@
         li = link_to date: @date.prev_week, limit: 20 do
           span.glyphicon.glyphicon-chevron-left
           = @date.prev_week.beginning_of_week.strftime('%b %d') +  ' - ' +  @date.prev_week.end_of_week.strftime('%d')
-        /li = link_to 'Today', date: Date.current
+        /li = link_to 'HOY', date: Date.current
         li = link_to date: @date.next_week, limit: 20 do
           = @date.next_week.beginning_of_week.strftime('%b %d') +  ' - ' +  @date.next_week.end_of_week.strftime('%d')
           span.glyphicon.glyphicon-chevron-right
@@ -41,5 +41,5 @@
                 = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
     - else
       .text-center
-        h3.text-muted No Events this week. :(
-        = link_to 'Add An Event', new_event_path, class: 'btn btn-success'
+        h3.text-muted PLANEANDO ENCUENTROS ESPEREN EL AVISO
+          
