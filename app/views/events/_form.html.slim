@@ -40,6 +40,15 @@
       i.glyphicon.glyphicon-map-marker
     .icon-content
       .form-group
+        = f.text_field :regroup_location, class:'form-control', placeholder:'PUNTO DE ENCUENTRO', tabindex: autoTabIndex
+
+  .icon-group
+    .icon
+      i.glyphicon.glyphicon-map-marker
+    .icon-content
+      .form-group
+        = f.text_field :finish_line, class:'form-control', placeholder:'DESTINO DE ENCUENTRO', tabindex: autoTabIndex
+    //  .form-group
         = text_field_tag :event_location, @location, class:'form-control', placeholder: 'PUNTO DE ENCUENTRO', tabindex: autoTabIndex, name:''
         = f.fields_for @location do |lf|
           = lf.hidden_field :name
@@ -69,15 +78,15 @@
       i.glyphicon.glyphicon-info-sign
     .icon-content
       .form-group
-        = f.text_area :description, class:'form-control', placeholder:'MISSION DEL ENCUENTRO', rows: 5, tabindex: autoTabIndex
+        = f.text_area :description, class:'form-control', placeholder:'MISSION DEL ENCUENTRO POR QUE EL ENCUENTRO', rows: 5, tabindex: autoTabIndex
   .icon-group
     .icon
     .icon-content
       /- if request.path.include? 'edit'
       - if current_page?(controller: :events, action: 'edit', id: (params[:id] || ''))
         .btn-group-Cortadito
-          = f.submit 'EMPEZAR', class:'btn btn-left-Cortadito btn-success'
+          = f.submit 'EMPEZAR', class:'btn btn-left-Cortadito btn-submit'
           = link_to @event, class: 'btn btn-right-Cortadito btn-danger', name: 'delete',data: {:confirm => 'QUE TANTO QUIREN SACAR A MADURO?'}, method: :delete do
             .glyphicon.glyphicon-trash
       - else
-        = f.submit 'INICIA LA SALIDA', class: 'btn btn-block btn-success'
+        = f.submit 'INICIA LA SALIDA', class: 'btn btn-block btn-submit'

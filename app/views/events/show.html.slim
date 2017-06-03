@@ -51,11 +51,16 @@
     .icon
       i.glyphicon.glyphicon-map-marker
     .icon-content
-      = link_to @event.location.googlemapsurl do
+      = @event.regroup_location
+    //  = link_to @event.location.googlemapsurl do
         h4 = @event.location.name
         p = @event.location.streetAddress
         p = @event.location.cityState
-
+  .icon-group#Location
+    .icon
+      i.glyphicon.glyphicon-map-marker
+    .icon-content
+      = @event.finish_line  
   // Tickets
   - if @event.ticketurl.present?
     .icon-group#Tickets

@@ -26,6 +26,13 @@ class EventsController < ApplicationController
     ## display variables
 
     @display_month = @date.year < Date.current.year ? @date.strftime("%B %Y") : @date.strftime("%B")
+    # p "@display_month"
+    # p @display_month.downcase
+    # @spanish_month = @@monthToES["june"]
+    # p "@@monthToES"
+    # p @@monthToES
+    # p "@spanish_month"
+    # p @spanish_month
 
   end
 
@@ -60,7 +67,7 @@ class EventsController < ApplicationController
     @event = Event.new(
         start: (DateTime.now + 1.hour).beginning_of_hour,
         finish: (DateTime.now + 2.hour).beginning_of_hour)
-    @location = @event.build_location_event.build_location
+    # @location = @event.build_location_event.build_location
 
   end
 
@@ -77,8 +84,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params.except(:location))
     @event.user = current_user
 
-    @location = Location.find_or_initialize_by(location_params)
-    @event.build_location_event.location = @location
+    # @location = Location.find_or_initialize_by(location_params)
+    # @event.build_location_event.location = @location
 
     respond_to do |format|
 
@@ -96,11 +103,11 @@ class EventsController < ApplicationController
   def update
 
     # Creates a valid Event Location
-    @location = @event.location || @event.build_location_event.build_location
+    # @location = @event.location || @event.build_location_event.build_location
 
     # If the location exists use else make a new one
-    @event.location_event.location = Location.find_or_initialize_by(location_params)
-    @event.location_event.location.update(location_params)
+    # @event.location_event.location = Location.find_or_initialize_by(location_params)
+    # @event.location_event.location.update(location_params)
 
     respond_to do |format|
       if @event.user == current_user && @event.update(event_params.except(:location))
@@ -146,7 +153,8 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start, :finish, :ticketurl, :description, :location => [:name, :streetnumber, :street, :city, :state, :zip, :country, :unit, :long_address])
+      # params.require(:event).permit(:title, :start, :finish, :ticketurl, :description, :location => [:name, :streetnumber, :street, :city, :state, :zip, :country, :unit, :long_address])
+      params.require(:event).permit(:title, :start, :finish, :ticketurl, :description, :regroup_location, :finish_line)
     end
 
     def location_params

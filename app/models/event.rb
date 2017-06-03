@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
   before_create :initialize_user_event
-  before_validation :set_finish_date, on: [:create, :update]
+  # before_validation :set_finish_date, on: [:create, :update]
 
   has_one :user_event, dependent: :destroy
   has_one :user, through: :user_event

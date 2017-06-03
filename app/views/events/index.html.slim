@@ -9,9 +9,11 @@
 .row
   .event-card-container
     h2.text-center#month
-      = link_to @display_month, date: Date.current, limit: 20
+      // = link_to @spanish_month, date: Date.current, limit: 20
+      // = link_to @display_month, date: Date.current, limit: 20
+      = link_to "Junio", date: Date.current, limit: 20
     h5.text-center
-      ul.pagination
+    //  ul.pagination
         li = link_to date: @date.prev_week, limit: 20 do
           span.glyphicon.glyphicon-chevron-left
           = @date.prev_week.beginning_of_week.strftime('%b %d') +  ' - ' +  @date.prev_week.end_of_week.strftime('%d')
@@ -24,11 +26,11 @@
         hr
         - case day[0]
           - when Date.current
-            p.text-muted.text-center = "Today ( #{day[0].strftime('%a, %b %d')} )"
+            p.text-muted.text-center = "Hoy ( #{day[0].strftime('%a, %b %d')} )"
           - when Date.current.tomorrow
-            p.text-muted.text-center = "Tomorrow (#{day[0].strftime('%a, %b %d, %Y')})"
+            p.text-muted.text-center = "Mañana (#{day[0].strftime('%a, %b %d, %Y')})"
           - when Date.current.yesterday
-            p.text-muted.text-center = "Yesterday (#{day[0].strftime('%a, %b %d, %Y')})"
+            p.text-muted.text-center = "Ayer (#{day[0].strftime('%a, %b %d, %Y')})"
           - else
             p.text-muted.text-center = day[0].strftime('%a, %b %d, %Y')
         hr
@@ -38,8 +40,8 @@
               p.title
                 = event.title.to_s
               span
-                = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
+                = "#{event.start.strftime('%I:%M %p')}"
+                // = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
     - else
       .text-center
         h3.text-muted PLANEANDO ENCUENTROS ESPEREN EL AVISO
-          

@@ -29,18 +29,29 @@ a
 //    a
 //      width: 150px
 
+nav > div
+  background-color: #ffff00
+
+nav > div > div.nav-header > button > span
+  background-color: #001fff !important
+
+nav > div > div.nav-header > a
+  color: $venezuela_blue !important
+
 .navbar-Cortadito
   @extend .navbar-default
   border: none
-  margin-bottom: 0px 
+  margin-bottom: 0px
   .navbar-brand-Cortadito
     @extend .navbar-brand
+    color: $venezuela_yellow
     float: none
     line-height: inherit
     margin-left: 16px // Compensating for Nav Toggle
 
 div.message > span
   color: $venezuela_yellow
+
 // For calendar
 td
   p
@@ -77,11 +88,16 @@ td
   line-height: 1.5
   // color: #777
   color: $venezuela_yellow
-  border-top: 1px solid #eee
+  // border-top: 1px solid #eee
+  top: -7em
 
 .break-xs
   @media (max-width: $screen-xs-min)
     display: block
+
+.alert
+  margin-bottom: 0 !important
+
 .alert-warning
   // background-color: #fcf8e3
   background-color: #290202
@@ -90,3 +106,6 @@ td
 .alert-warning
   .message > a
     color: $venezuela_blue !important
+.container
+  position: relative
+  top: -1em
