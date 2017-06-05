@@ -45,7 +45,8 @@
     .icon
       i.glyphicon.glyphicon-time
     .icon-content
-      = @event.start.strftime('%I:%M %p') + ' - ' + @event.finish.strftime('%I:%M %p')
+      // = @event.start.strftime('%I:%M %p') + ' - ' + @event.finish.strftime('%I:%M %p')
+      = @event.start.strftime('%I:%M %p') 
   // Location
   .icon-group#Location
     .icon
@@ -56,7 +57,7 @@
         h4 = @event.location.name
         p = @event.location.streetAddress
         p = @event.location.cityState
-  .icon-group#Location
+  // .icon-group#Location
     .icon
       i.glyphicon.glyphicon-map-marker
     .icon-content
