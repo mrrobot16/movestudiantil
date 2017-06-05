@@ -4,36 +4,29 @@ class EventsController < ApplicationController
   before_action :set_date, only: [:index, :calendar]
   before_action :set_colors, only: [:index, :show]
   @@monthToES = {
-    january:"enero",
-    febuary:"febrero",
-    march:"marzo",
-    april:"april",
-    may:"mayo",
-    june:"junio",
-    july:"julio",
-    august:"agosto",
-    september:"septiembre",
-    october:"octubre",
-    november:"noviembre",
-    december:"diciembre"
+    "january":"enero",
+    "febuary":"febrero",
+    "march":"marzo",
+    "april":"april",
+    "may":"mayo",
+    "june":"junio",
+    "july":"julio",
+    "august":"agosto",
+    "september":"septiembre",
+    "october":"octubre",
+    "november":"noviembre",
+    "december":"diciembre"
   }
   def index
     # Lets just show the next 20 events and worry about proper navigation sorting another time.
     @events_by_week = Event.where('start > ?', @date).order(:start).limit(params[:limit]).group_by(&:start_date)
-
+    @events_by_week.each do |day|
+      p day
+    end
     # @events_by_week = Event.where(:start => @date.yesterday..@date.at_end_of_week + 1.day).order(:start).group_by(&:start_date) || Event.this_week.order(:start).group_by(&:start_date)
-
     ## display variables
-
     @display_month = @date.year < Date.current.year ? @date.strftime("%B %Y") : @date.strftime("%B")
-    # p "@display_month"
-    # p @display_month.downcase
-    # @spanish_month = @@monthToES["june"]
-    # p "@@monthToES"
-    # p @@monthToES
-    # p "@spanish_month"
-    # p @spanish_month
-
+    @spanish_month = @@monthToES[@display_month.downcase.intern].capitalize
   end
 
   def calendar
@@ -140,8 +133,8 @@ class EventsController < ApplicationController
 
     def set_date
       @date = params[:date] ? Date.parse(params[:date]) : Date.current
-      p @date
-      p @date.strftime("%B %Y")
+      # p @date
+      # p @date.strftime("%B %Y")
     end
 
     def set_colors

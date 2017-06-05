@@ -11,7 +11,8 @@
     h2.text-center#month
       // = link_to @spanish_month, date: Date.current, limit: 20
       // = link_to @display_month, date: Date.current, limit: 20
-      = link_to "Junio", date: Date.current, limit: 20
+      = link_to @spanish_month, date: Date.current, limit: 20
+      // = link_to "Junio", date: Date.current, limit: 20
     h5.text-center
     //  ul.pagination
         li = link_to date: @date.prev_week, limit: 20 do
