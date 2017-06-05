@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>
+      <% if content_for? :title %>
+        <%= "| FUERAMADURO -  #{yield :title}" %>
+      <% else %>
+        <%= "FUERAMADURO" %>
+      <% end %>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FUERA MADURO">
+    <meta name="author" content="MOVIMIENTO ESTUDIANTIL">
+    <meta value="twitter:site" content="@MOVIMIENTOESTUDIANTIL">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="FUERAMADURO.COM">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body id="<%= params[:controller] %>" class="<%= params[:action] %>">
+  <%= render 'partial/nav'%>
+    <div class="text-center">
+      <div class="alert alert-warning">
+        <div class="message">
+          <span>LA REBELION SE HIZO DERECHO</span>
+          <a href="/">MOVIMIENTO ESTUDIANTIL</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="site-footer">
+      <div class="text-center">
+        <p><strong>MOVIMIENTO ESTUDIANTIL</strong></p>
+        <p><strong>UNIDOS PARA TRIUNFAR</strong></p>
+      </div>
+    </div>
+  </body>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-47849197-14', 'auto');
+ga('send', 'pageview');
+
+</script>
+</html>
