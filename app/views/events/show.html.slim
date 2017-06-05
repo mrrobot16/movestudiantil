@@ -46,7 +46,7 @@
       i.glyphicon.glyphicon-time
     .icon-content
       // = @event.start.strftime('%I:%M %p') + ' - ' + @event.finish.strftime('%I:%M %p')
-      = @event.start.strftime('%I:%M %p') 
+      = @event.start.strftime('%I:%M %p')
   // Location
   .icon-group#Location
     .icon
@@ -76,7 +76,7 @@
     .icon-content
       p == @event.description.gsub(/\n/, '<br />')
   // Owner
-  .icon-group
+  // .icon-group
     .icon
       i.glyphicon.glyphicon-user
     .icon-content
