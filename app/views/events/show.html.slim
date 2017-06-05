@@ -1,7 +1,7 @@
 = content_for :title
   = @event.title
 
-= render partial: 'event_meta_tags'
+// = render partial: 'event_meta_tags'
 
 = hidden_field_tag 'location'
 
@@ -60,7 +60,7 @@
     .icon
       i.glyphicon.glyphicon-map-marker
     .icon-content
-      = @event.finish_line  
+      = @event.finish_line
   // Tickets
   - if @event.ticketurl.present?
     .icon-group#Tickets
