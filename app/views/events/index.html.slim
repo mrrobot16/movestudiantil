@@ -43,6 +43,10 @@
               p.text-center
                 = "#{event.start.strftime('%I:%M %p')}"
                 // = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
+              p.text-center
+                = "SALIDA: #{event.regroup_location}"
+              p.text-center
+                = "LLEGADA: #{event.finish_line}"
     - else
       .text-center
         h3.text-muted PLANEANDO ENCUENTROS ESPEREN EL AVISO
