@@ -45,24 +45,10 @@ class EventsController < ApplicationController
   def index
     # Lets just show the next 20 events and worry about proper navigation sorting another time.
     @events_by_week = Event.where('start > ?', @date).order(:start).limit(params[:limit]).group_by(&:start_date)
-    @events_by_week.each do |day|
-      # p day[0].strftime('%a, %b %d')
-      # @dayToES = day[0].strftime('%a, %b %d').to_s.split(" ")[0].downcase.chomp(',')
-      # p day[0]
-      day_to_es(day[0].strftime('%a, %b %d'))
-      # p day_to_es(@dayToES)+' '+ day[0].strftime('%a, %b %d').to_s.split(" ")[2]+ +" "+ @@monthToES2[day[0].strftime('%a, %b %d').to_s.split(" ")[1].downcase.intern].capitalize
-      # p @@dayToES[@dayToES.intern]
-    end
     # @events_by_week = Event.where(:start => @date.yesterday..@date.at_end_of_week + 1.day).order(:start).group_by(&:start_date) || Event.this_week.order(:start).group_by(&:start_date)
     ## display variables
     @display_month = @date.year < Date.current.year ? @date.strftime("%B %Y") : @date.strftime("%B")
     @spanish_month = @@monthToES[@display_month.downcase.intern].capitalize
-    # p Date.current.to_s.split("-")
-    # p Date.methods
-    # p date_current_es
-    # date = Date.new
-    # p Date.current.day
-
   end
 
   def calendar
@@ -71,25 +57,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    # @google_event_snippet = {
-    #   '@context': 'http://schema.org',
-    #   '@type': 'Event',
-    #   name: @event.title,
-    #   startDate: @event.start.iso8601,
-    #   endDate: @event.finish.iso8601,
-    #   url: event_url(@event),
-    #   location: {
-    #     '@type': 'Place',
-    #     name: @event.location.name,
-    #     address: {
-    #       '@type': 'PostalAddress',
-    #       streetAddress: @event.location.streetAddress,
-    #       addressLocality: @event.location.city,
-    #       addressRegion: @event.location.state,
-    #       postalCode: @event.location.zip
-    #     }
-    #   }
-    # }
   end
 
   def new
@@ -97,7 +64,6 @@ class EventsController < ApplicationController
         start: (DateTime.now + 1.hour).beginning_of_hour,
         finish: (DateTime.now + 2.hour).beginning_of_hour)
     # @location = @event.build_location_event.build_location
-
   end
 
   def edit
@@ -109,13 +75,10 @@ class EventsController < ApplicationController
   end
 
   def create
-
     @event = Event.new(event_params.except(:location))
     @event.user = current_user
-
     # @location = Location.find_or_initialize_by(location_params)
     # @event.build_location_event.location = @location
-
     respond_to do |format|
 
       if @event.save
@@ -126,11 +89,9 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def update
-
     # Creates a valid Event Location
     # @location = @event.location || @event.build_location_event.build_location
 
