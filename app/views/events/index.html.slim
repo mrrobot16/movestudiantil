@@ -12,7 +12,7 @@
       // = link_to @spanish_month, date: Date.current, limit: 20
       // = link_to @display_month, date: Date.current, limit: 20
       = link_to @spanish_month, date: Date.current, limit: 20
-      // = link_to "Junio", date: Date.current, limit: 20
+      // = link_to "Junio", date: date_current_es, limit: 20
     h5.text-center
     //  ul.pagination
         li = link_to date: @date.prev_week, limit: 20 do
@@ -27,20 +27,20 @@
         hr
         - case day[0]
           - when Date.current
-            p.text-muted.text-center = "Hoy ( #{day[0].strftime('%a, %b %d')} )"
+            p.text-muted.text-center = "Hoy (#{day_to_es(day[0].strftime('%a, %b %d, %Y'))})"
           - when Date.current.tomorrow
-            p.text-muted.text-center = "Mañana (#{day[0].strftime('%a, %b %d, %Y')})"
+            p.text-muted.text-center = "Mañana (#{day_to_es(day[0].strftime('%a, %b %d, %Y'))})"
           - when Date.current.yesterday
-            p.text-muted.text-center = "Ayer (#{day[0].strftime('%a, %b %d, %Y')})"
+            p.text-muted.text-center = "Ayer (#{day_to_es(day[0].strftime('%a, %b %d, %Y'))})"
           - else
-            p.text-muted.text-center = day[0].strftime('%a, %b %d, %Y')
+            p.text-muted.text-center = day_to_es(day[0].strftime('%a, %b %d, %Y'))
         hr
         - day[1].each do |event|
           = link_to event do
-            .event-card style="background:#{assign_color(@colors)}"
+            .event-card
               p.title
                 = event.title.to_s
-              span
+              p.text-center
                 = "#{event.start.strftime('%I:%M %p')}"
                 // = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
     - else

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  include EventsHelper
   before_action :authenticate_user!, except: [:index, :show, :calendar]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_date, only: [:index, :calendar]
@@ -17,16 +18,51 @@ class EventsController < ApplicationController
     "november":"noviembre",
     "december":"diciembre"
   }
+  @@monthToES2 ={
+    "jan":"enero",
+    "feb":"febrero",
+    "mar":"marzo",
+    "apr":"april",
+    "may":"mayo",
+    "jun":"junio",
+    "jul":"julio",
+    "aug":"agosto",
+    "sep":"septiembre",
+    "oct":"octubre",
+    "nov":"noviembre",
+    "dec":"diciembre"
+  }
+
+  @@dayToES = {
+    "mon":'Lunes',
+    "tue":'Martes',
+    "wen":"Miercoles",
+    "thu":"Jueves",
+    'fri':"Viernes",
+    "sat":"Sabado",
+    "sun":"Domingo"
+  }
   def index
     # Lets just show the next 20 events and worry about proper navigation sorting another time.
     @events_by_week = Event.where('start > ?', @date).order(:start).limit(params[:limit]).group_by(&:start_date)
     @events_by_week.each do |day|
-      p day
+      # p day[0].strftime('%a, %b %d')
+      # @dayToES = day[0].strftime('%a, %b %d').to_s.split(" ")[0].downcase.chomp(',')
+      # p day[0]
+      day_to_es(day[0].strftime('%a, %b %d'))
+      # p day_to_es(@dayToES)+' '+ day[0].strftime('%a, %b %d').to_s.split(" ")[2]+ +" "+ @@monthToES2[day[0].strftime('%a, %b %d').to_s.split(" ")[1].downcase.intern].capitalize
+      # p @@dayToES[@dayToES.intern]
     end
     # @events_by_week = Event.where(:start => @date.yesterday..@date.at_end_of_week + 1.day).order(:start).group_by(&:start_date) || Event.this_week.order(:start).group_by(&:start_date)
     ## display variables
     @display_month = @date.year < Date.current.year ? @date.strftime("%B %Y") : @date.strftime("%B")
     @spanish_month = @@monthToES[@display_month.downcase.intern].capitalize
+    # p Date.current.to_s.split("-")
+    # p Date.methods
+    # p date_current_es
+    # date = Date.new
+    # p Date.current.day
+
   end
 
   def calendar

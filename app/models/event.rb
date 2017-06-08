@@ -16,9 +16,9 @@ class Event < ActiveRecord::Base
             presence: true,
             length:{  minimum: 2}
 
-  validates :description,
-            presence: true,
-            length:{  minimum: 2}
+  # validates :description,
+  #           presence: true,
+  #           length:{  minimum: 2}
 
   validates :start,
             presence: true
