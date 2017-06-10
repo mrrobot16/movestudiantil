@@ -45,6 +45,7 @@
                 // = "#{event.start.strftime('%I:%M %p')} - #{event.finish.strftime('%I:%M %p')}"
               p.text-center
                 = "SALIDA: #{event.regroup_location}"
+              - if event.finish_line  
               p.text-center
                 = "LLEGADA: #{event.finish_line}"
     - else
