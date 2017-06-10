@@ -16,6 +16,9 @@ class Event < ActiveRecord::Base
             presence: true,
             length:{  minimum: 2}
 
+  validates :regroup_location,
+            presence: true
+
   # validates :description,
   #           presence: true,
   #           length:{  minimum: 2}
@@ -62,7 +65,7 @@ class Event < ActiveRecord::Base
   def start_time_not_in_past
     if start
       if self.start < DateTime.now - 1.hour
-        errors.add :start, 'No Time Traveling Allowed'
+        errors.add :start, 'No se puede viajar en el tiempo.'
       end
     end
   end

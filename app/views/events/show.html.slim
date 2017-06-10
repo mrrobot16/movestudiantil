@@ -60,6 +60,7 @@
   // .icon-group#Location
     .icon
       i.glyphicon.glyphicon-map-marker
+   - if (@event.finish_line != '')
     .icon-content
       = @event.finish_line
   // Tickets
@@ -70,11 +71,12 @@
       .icon-content
         = link_to @event.ticketurl, @event.ticketurl
   // Description
-  .icon-group#Description
-    .icon
-      i.glyphicon.glyphicon-info-sign
-    .icon-content
-      p == @event.description.gsub(/\n/, '<br />')
+  - if (@event.description != '')
+    .icon-group#Description
+      .icon
+        i.glyphicon.glyphicon-info-sign
+      .icon-content
+        p == @event.description.gsub(/\n/, '<br />')
   // Owner
   // .icon-group
     .icon
