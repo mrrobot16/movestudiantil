@@ -26,7 +26,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <li>
-          <%= link_to 'INICIA ENCUENTRO', new_event_path %>
+          <%= link_to 'INICIA CALLE', new_event_path %>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -40,7 +40,7 @@
         </li>
 
         <% else %>
-            <li><%= link_to 'Iniciar Session' %></li>
+            <li><%= link_to 'Iniciar Session', new_user_session %></li>
             <li><%= link_to 'Registrarte', new_user_registration_path %></li>
         <% end %>
       </ul>
